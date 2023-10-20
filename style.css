@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn {
+    @apply bg-teal-400 rounded-full text-white font-bold hover:brightness-110;
+  }
+}
+
+.hover-icon:hover path {
+  fill: #2dd4bf;
+}
