@@ -10,6 +10,7 @@
   .btn2 {
     @apply bg-teal-400 rounded-xl text-white font-bold hover:brightness-110;
   }
+
 }
 
 .hover-icon:hover path {

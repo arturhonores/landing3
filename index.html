@@ -13,17 +13,17 @@
   <header class="container mx-auto px-4">
     <nav class="flex justify-between py-5 items-center">
       <div class="flex space-x-20">
-        <div>
+        <div class="cursor-pointer">
           <img src="/images/logo.svg" alt="" width="100%">
         </div>
         <ul class="text-lg text-zinc-400 font-bold space-x-10 hidden lg:flex">
-          <li>Features</li>
-          <li>Pricing</li>
-          <li>Resources</li>
+          <li class="hover:text-black cursor-pointer">Features</li>
+          <li class="hover:text-black cursor-pointer">Pricing</li>
+          <li class="hover:text-black cursor-pointer">Resources</li>
         </ul>
       </div>
       <div class="text-zinc-400 font-bold text-lg space-x-5 hidden lg:block">
-        <a href="#">Login</a>
+        <a href="#" class="hover:text-black">Login</a>
         <button class="btn px-6 py-2">Sign Up</button>
       </div>
     </nav>
@@ -46,17 +46,21 @@
   </header>
   <section class="bg-zinc-100 py-10 px-4">
     <div class="mx-auto max-w-4xl">
-      <form class="flex justify-center gap-3 bg-customColor py-8 px-6 my-4 rounded-xl" id="form">
-        <input class="rounded-xl grow px-4" placeholder="Shorten a link here" type="text" id="inputLinks">
-        <button class="btn2 px-8 py-3">Shorten it!</button>
+      <form class="relative bg-customColor py-10 px-6 my-4 rounded-xl" id="form">
+        <div class="flex flex-col md:flex-row gap-3">
+          <input class="rounded-xl grow py-3 px-4 placeholder:text-yellow-500 placeholder:font-bold focus:outline-none"
+            placeholder="Shorten a link here" type="text" id="inputLinks">
+          <button class="btn2 px-8 py-3">Shorten it!</button>
+        </div>
+        <p id="errorMessage" class='text-red-500 absolute bottom-2 font-bold'></p>
       </form>
       <div class="flex justify-between items-center bg-white px-6 py-6 rounded-xl">
         <p class="font-bold text-lg">https://url.example.com</p>
         <div class="flex items-center gap-3">
-          <p class="text-teal-400 font-bold text-lg">https://rel.ink/k4IKyk</p>
+          <p class="text-teal-400 font-bold text-lg">https://rel.link/k4IKyk</p>
           <button class="btn2 px-7 py-1">copy</button>
-          <button class="bg-red-400 py-1 px-1 rounded-xl"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
-              viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-6 h-6">
+          <button class="bg-red-400 py-1 px-1 rounded-xl hover:brightness-110"><svg xmlns="http://www.w3.org/2000/svg"
+              fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-6 h-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>

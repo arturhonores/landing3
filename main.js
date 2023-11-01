@@ -2,14 +2,23 @@
 const form = document.getElementById("form")
 const inputLinks = document.getElementById("inputLinks")
 const linksList = document.getElementById("linksList")
+const errorMessage = document.getElementById("errorMessage")
 
+//add links to list
 const putLinks = (link) => {
+  if (link === "") {
+    errorMessage.textContent = "Error: link is empty"
+    setTimeout(() => {
+      errorMessage.textContent = ""
+    }, 2000)
+  } else {
+    const newShortLink = generateShortLinks()
     const liLinks = `<li class="flex justify-between items-center bg-white px-6 py-6 my-4 rounded-xl">
     <p class="font-bold text-lg">${link}</p>
     <div class="flex items-center gap-3">
-      <p class="text-teal-400 font-bold text-lg">https://rel.ink/k4IKyk</p>
+      <p class="text-teal-400 font-bold text-lg">${newShortLink}</p>
       <button class="btn2 px-7 py-1">copy</button>
-      <button class="deleteButton bg-red-400 py-1 px-1 rounded-xl"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+      <button class="deleteButton bg-red-400 py-1 px-1 rounded-xl hover:brightness-110"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
           viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-6 h-6">
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
         </svg>
@@ -17,17 +26,35 @@ const putLinks = (link) => {
     </div>
   </li>`
     linksList.innerHTML += liLinks
+  }
 }
 
+// Event handler for form submission
 form.addEventListener("submit", e => {
-    e.preventDefault()
-    putLinks(inputLinks.value)
+  e.preventDefault()
+  putLinks(inputLinks.value.trim())
 })
 
+// Event handler for deleting links
 linksList.addEventListener("click", e => {
-    if (e.target.classList.contains("deleteButton") || e.target.closest(".deleteButton")) {
-        e.target.closest("li").remove()
-    }
+  if (e.target.classList.contains("deleteButton") || e.target.closest(".deleteButton")) {
+    e.target.closest("li").remove()
+  }
 })
+
+//function for create links
+const generateShortLinks = () => {
+  const alphanumeric = "abcdefghijklmnopqrstuvwxyz123456790"
+  const index1 = Math.floor(Math.random() * alphanumeric.length)
+  const index2 = Math.floor(Math.random() * alphanumeric.length)
+  const randomDigit1 = alphanumeric.charAt(index1)
+  const randomDigit2 = alphanumeric.charAt(index2)
+  // const randomDigit3 = alphanumeric.charAt(index)
+  // const randomDigit4 = alphanumeric.charAt(index)
+  // const randomDigit5 = alphanumeric.charAt(index)
+  // const randomDigit6 = alphanumeric.charAt(index)
+  const shortLink = `https://rel.link${randomDigit1}${randomDigit2}`
+  return shortLink
+}
 
 
