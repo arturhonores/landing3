@@ -4,6 +4,7 @@ const inputLinks = document.getElementById("inputLinks")
 const linksList = document.getElementById("linksList")
 const errorMessage = document.getElementById("errorMessage")
 
+
 //add links to list
 const putLinks = (link) => {
   if (link === "") {
@@ -13,16 +14,18 @@ const putLinks = (link) => {
     }, 2000)
   } else {
     const newShortLink = generateShortLinks()
-    const liLinks = `<li class="flex justify-between items-center bg-white px-6 py-6 my-4 rounded-xl">
+    const liLinks = `<li class="flex flex-col md:flex-row md:justify-between items-center bg-white px-6 py-6 my-4 rounded-xl">
     <p class="font-bold text-lg">${link}</p>
-    <div class="flex items-center gap-3">
+    <div class="flex flex-col md:flex-row items-center gap-3">
       <p class="text-teal-400 font-bold text-lg">${newShortLink}</p>
+      <div class="flex justify-center items-center gap-2">
       <button class="btn2 px-7 py-1">copy</button>
       <button class="deleteButton bg-red-400 py-1 px-1 rounded-xl hover:brightness-110"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
           viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-6 h-6">
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
+      </div>  
     </div>
   </li>`
     linksList.innerHTML += liLinks
@@ -56,5 +59,20 @@ const generateShortLinks = () => {
   const shortLink = `https://rel.link${randomDigit1}${randomDigit2}`
   return shortLink
 }
+
+
+//menu
+const menuBtn = document.querySelector('.menu-btn');
+let menuOpen = false;
+
+menuBtn.addEventListener('click', () => {
+    if (!menuOpen) {
+        menuBtn.classList.add('open');
+        menuOpen = true;
+    } else {
+        menuBtn.classList.remove('open');
+        menuOpen = false;
+    }
+});
 
 

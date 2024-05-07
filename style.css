@@ -16,3 +16,57 @@
 .hover-icon:hover path {
   fill: #2dd4bf;
 }
+
+.menu-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  /* border: 3px solid #000; */
+}
+
+.menu-btn__burger {
+  position: relative;
+  width: 28px;
+  height: 3px;
+  background: grey;
+  border-radius: 3px;
+  transition: all 0.2s ease-in-out;
+}
+
+.menu-btn__burger::before,
+.menu-btn__burger::after {
+  content: " ";
+  position: absolute;
+  width: 28px;
+  height: 3px;
+  background: grey;
+  border-radius: 3px;
+  transition: all 0.2s ease-in-out;
+}
+
+.menu-btn__burger::before {
+  transform: translateY(-10px);
+}
+
+.menu-btn__burger::after {
+  transform: translateY(10px);
+}
+
+/* Menu hamburguesa animación*/
+
+.menu-btn.open .menu-btn__burger {
+  transform: translateX(-28px);
+  background: transparent;
+}
+
+.menu-btn.open .menu-btn__burger::before {
+  transform: rotate(45deg) translate(20px, -20px);
+}
+
+.menu-btn.open .menu-btn__burger::after {
+  transform: rotate(-45deg) translate(20px, 20px);
+}
