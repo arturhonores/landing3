@@ -52,27 +52,26 @@ const generateShortLinks = () => {
   const index2 = Math.floor(Math.random() * alphanumeric.length)
   const randomDigit1 = alphanumeric.charAt(index1)
   const randomDigit2 = alphanumeric.charAt(index2)
-  // const randomDigit3 = alphanumeric.charAt(index)
-  // const randomDigit4 = alphanumeric.charAt(index)
-  // const randomDigit5 = alphanumeric.charAt(index)
-  // const randomDigit6 = alphanumeric.charAt(index)
   const shortLink = `https://rel.link${randomDigit1}${randomDigit2}`
   return shortLink
 }
 
 
 //menu
+const menuMobile = document.getElementById("menuMobile")
 const menuBtn = document.querySelector('.menu-btn');
 let menuOpen = false;
 
 menuBtn.addEventListener('click', () => {
-    if (!menuOpen) {
-        menuBtn.classList.add('open');
-        menuOpen = true;
-    } else {
-        menuBtn.classList.remove('open');
-        menuOpen = false;
-    }
+  if (!menuOpen) {
+    menuBtn.classList.add('open');
+    menuMobile.classList.remove("hidden")
+    menuOpen = true;
+  } else {
+    menuBtn.classList.remove('open');
+    menuMobile.classList.add("hidden")
+    menuOpen = false;
+  }
 });
 
 
